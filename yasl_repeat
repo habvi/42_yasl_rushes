@@ -1,0 +1,112 @@
+#!yasl
+
+{
+    print_stack
+    "\n"
+    print
+} print_stackln
+
+{
+    "\n"
+    print
+} endl
+
+{
+	=
+	][
+	[]
+	[#]
+} strlen
+
+{
+	"Error: empty arguments\n"
+	print
+    0
+    exit 1
+} empty_arg
+
+{
+	"Error: empty value\n"
+	print
+    0
+    exit 1
+} empty_value
+
+{
+	"Error:"
+	print
+	" invalid start_num\n"
+	print
+	#
+	exit 1
+} not_number
+
+{
+	7: = :0
+	=
+	("0" >= ? = : not_number )
+	("9" <= ? = : not_number)
+	!
+	7: !
+	=
+	1
+	<<
+	= :7
+} is_number
+
+{
+	is_number
+	8: = :0
+	1 - =
+	( 0 == ? 0:9 : 1:9 )
+	0: = :8
+} loop_cnt
+
+{
+	strlen
+	= :8
+	!
+	!
+	= :7
+	@loop_cnt
+} is_positive_number
+
+{
+	"0"
+	== ? not_number
+	" "
+} is_zero_number
+
+{
+    =
+    print
+} print_args
+
+{
+    1: = :0
+    1: (1 +) :1
+    #print_args
+    endl
+    !
+    #
+} loop
+
+{
+    2
+    #!
+} pop_filename
+
+pop_filename
+
+# 0
+== ? empty_arg
+
+is_positive_number
+is_zero_number
+!
+
+# 1
+== ? empty_value
+
+0: eval = :1
+@loop

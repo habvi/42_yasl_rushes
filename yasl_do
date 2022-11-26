@@ -5,7 +5,26 @@
     "\n" print
 } println
 
-2
-#!
-" " + 3 ^ + " " + 2 ^ + eval
+{
+    2
+    #!
+} pop_filename
+
+pop_filename
+
+" " +
+3 ^ +
+" " +
+2 ^ +
+eval
 println
+
+
+
+// 8 - 5
+// bottom  top
+// "5" "-" "8"
+// "5" "-" "8 "
+// "-" "8 5"
+// "-" "8 5 "
+// "8 5 -"
