@@ -19,6 +19,9 @@
 } strlen
 
 {
+} none
+
+{
 	"Error: empty arguments\n"
 	print
     0
@@ -42,10 +45,18 @@
 } not_number
 
 {
+	=
+	(":" == ? not_number : none)
+
+} check_colon
+
+{
 	7: = :0
 	=
-	("0" >= ? = : not_number )
-	("9" <= ? = : not_number)
+	(9 <= ? check_colon : none)
+	=
+	("0" >= ? = : not_number)
+	(":" <= ? = : not_number)
 	!
 	7: !
 	=
@@ -57,8 +68,9 @@
 {
 	is_number
 	8: = :0
-	1 - =
-	( 0 == ? 0:9 : 1:9 )
+	(1 -)
+	=
+	(0 == ? 0:9 : 1:9)
 	0: = :8
 } loop_cnt
 
@@ -104,9 +116,12 @@ pop_filename
 is_positive_number
 is_zero_number
 !
+// print_stackln
+
+// clear_unnecessary_stack
 
 # 1
 == ? empty_value
 
-0: eval = :1
-@loop
+// 0: eval = :1
+// @loop
