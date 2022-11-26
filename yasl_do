@@ -1,0 +1,11 @@
+#!yasl
+
+{
+    print
+    "\n" print
+} println
+
+2
+#!
+" " + 3 ^ + " " + 2 ^ + eval
+println

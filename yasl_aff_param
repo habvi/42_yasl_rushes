@@ -1,0 +1,16 @@
+#!yasl
+
+{
+    print
+    "\n" print
+} println
+
+{
+    println
+    #
+} loop
+
+2
+#!
+#
+@loop
