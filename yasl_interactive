@@ -1,9 +1,19 @@
 #!./yasl
 
+{
+} none
+
+{
+=
+0
+(!= ? 0:=:1 : none)
+!
+1:eval
+} eval_warp
+
 !
 @( read
-!
-eval
+? eval_warp : none
 ""
 print
 1

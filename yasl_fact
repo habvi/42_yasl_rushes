@@ -20,10 +20,20 @@
 } not_number
 
 {
+	=
+	( ":" == ? not_number2 : none)
+
+} check_colon
+
+{
+
+
 	7:=:0
 	=
-	("0" >= ? = : not_number )
-	("9" <= ? = : not_number)
+	( 9 <= ? check_colon : none)
+	=
+	("0" >= ? = : not_number)
+	(":" <= ? = : not_number)
 	!
 	7:!
 	=
