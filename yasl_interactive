@@ -1,0 +1,10 @@
+#!./yasl
+
+!
+@( read
+!
+eval
+""
+print
+1
+)

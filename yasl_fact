@@ -1,0 +1,124 @@
+#!./yasl
+
+{
+} none
+
+{
+	=
+	][
+	[]
+	[#]
+} strlen
+
+{
+	"Error:"
+	print
+	" is not valid number\n"
+	print
+	#
+	exit 1
+} not_number
+
+{
+	7:=:0
+	=
+	("0" >= ? = : not_number )
+	("9" <= ? = : not_number)
+	!
+	7:!
+	=
+	1
+	<<
+	=:7
+} is_number
+
+{
+	is_number
+	8:=:0
+	( 1 - )
+	=
+	( 0 == ? 0:9 : 1:9 )
+	0:=:8
+} loop_cnt
+
+{
+	1:1
+	0:=:6
+} init_factorial_value
+
+{
+	"Error:invalid arguments number\n"
+	print
+	#
+	exit
+
+} invalid_arg
+
+{
+	( # 3 != ? invalid_arg : none)
+	!
+	!
+} remove_unnecessry_arg
+
+{
+	1
+	print
+	exit
+} zero
+
+{
+	strlen
+	=:8
+	!
+	!
+	=:7
+	@loop_cnt
+} is_positive_number
+
+{
+	#
+	1
+	==
+	? none : 
+
+
+} check_arg
+
+{
+	"Error:overflow\n"
+	print
+	#
+	exit
+} overflow
+
+{
+	!
+	#
+	0
+	>
+	? 1 : 0
+} clear_stack
+
+{
+	=
+	1: = :0
+	%*
+	=:1
+	< ? ! : overflow
+	( 1 - )
+	=
+	1
+	> ? factorial :  1:print
+} factorial
+
+remove_unnecessry_arg
+init_factorial_value
+//check_arg
+is_positive_number
+=
+0
+== ? zero : 1
+== ? zero : 1
+@clear_stack
+6:=:0
+factorial
