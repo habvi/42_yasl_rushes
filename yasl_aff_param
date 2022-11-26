@@ -6,11 +6,16 @@
 } println
 
 {
+    2
+    #!
+} pop_filename
+
+{
     println
     #
 } loop
 
-2
-#!
+pop_filename
+
 #
 @loop
