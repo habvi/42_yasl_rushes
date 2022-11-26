@@ -21,7 +21,7 @@
 
 {
 	=
-	( ":" == ? not_number2 : none)
+	( ":" == ? not_number : none)
 
 } check_colon
 
