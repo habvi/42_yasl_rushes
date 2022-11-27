@@ -381,6 +381,14 @@
 } clear_stack4
 
 {
+	5:!:5
+	5:#:5
+	0:5
+	5:>:5
+	5:? 1 : 0
+} clear_stack5
+
+{
 	6:!:6
 	6:#:6
 	0:6
@@ -398,10 +406,13 @@
 	#:3
 	1
 	@clear_stack3
+	#:5
+	1
+	@clear_stack5
 	//#:4
 	//1
 	//@clear_stack4
-	//#:6
+	//#:5
 	//1
 	//@clear_stack6
 	8:!
@@ -461,30 +472,30 @@
 	//print
 
 	//6:=:5
-	6:!
+	5:!
 	0
 } copy_searched_color
 
 {
 	1
 	-
-	6:!
+	5:!
 	1
 } continue_search
 
 {
-	6:#:2
-	6:=:6
-	1:=:6
-	( 6:== ? copy_searched_color : continue_search)
+	5:#:2
+	5:=:5
+	1:=:5
+	( 5:== ? copy_searched_color : continue_search)
 } search_color_loop
 
 {
 	0:=:1
 	0:!
-	4:=:6
-	6:][:6
-	6:!
+	4:=:5
+	5:][:5
+	5:!
 	255 
 	255 
 	@search_color_loop
@@ -502,11 +513,11 @@
 
 
 remove_unnecessry_arg
-print_stack
 init_color_list
 set_thread_val
 convert_std255
 calc_color
+print_stack
 search_color
 
 print_color
