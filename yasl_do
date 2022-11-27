@@ -6,19 +6,17 @@
 } println
 
 {
-    2
-    #!
-} pop_filename
+    ! !
 
-pop_filename
+    " " +
+    3 ^ +
+    " " +
+    2 ^ +
+    eval
+    println
+} main
 
-" " +
-3 ^ +
-" " +
-2 ^ +
-eval
-println
-
+main
 
 
 // 8 - 5

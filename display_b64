@@ -1,0 +1,333 @@
+#!./yasl
+
+{
+    print_stack
+    "\n"
+    print
+} print_stackln
+
+{
+    print
+    "\n"
+    print
+} println
+
+{
+    "\n"
+    print
+} endl
+
+{
+} none
+
+{
+    6:=:1
+    5:=:1
+    1:-:1
+} store1
+
+{
+    6:=:2
+    5:=:2
+    2:-:2
+} store2
+
+{
+    6:=:3
+    5:=:3
+    3:-:3
+} store3
+
+{
+    6:=:4
+    5:=:4
+    4:-:4
+} store4
+
+{
+    6:=:7
+    7:^:7
+    7:=:7
+
+    // cmp
+    0:=:7
+    7: == ? store1 : none
+
+    5:(1 -):5
+    5:=:0
+} convert_base64_to_base10_1
+
+{
+    6:=:7
+    7:^:7
+    7:=:7
+
+    // cmp
+    0:=:7
+    7: == ? store2 : none
+
+    5:(1 -):5
+    5:=:0
+} convert_base64_to_base10_2
+
+{
+    6:=:7
+    7:^:7
+    7:=:7
+
+    // cmp
+    0:=:7
+    7: == ? store3 : none
+
+    5:(1 -):5
+    5:=:0
+} convert_base64_to_base10_3
+
+{
+    6:=:7
+    7:^:7
+    7:=:7
+
+    // cmp
+    0:=:7
+    7: == ? store4 : none
+
+    5:(1 -):5
+    5:=:0
+} convert_base64_to_base10_4
+
+{
+    6:=:5
+    5:=:0
+    @convert_base64_to_base10_4
+    5: !
+    !
+
+    6:=:5
+    5:=:0
+    @convert_base64_to_base10_3
+    5: !
+    !
+
+    6:=:5
+    5:=:0
+    @convert_base64_to_base10_2
+    5: !
+    !
+
+    6:=:5
+    5:=:0
+    @convert_base64_to_base10_1
+    5: !
+    !
+} loop_every_4bits
+
+{
+    2:=:5
+    48 :5
+    5:&:5
+    4 :5
+    5:>>:5
+    1:=:5
+    63 :5
+    5:&:5
+    2 :5
+    5:<<:5
+    5:|:5
+} red
+
+{
+    3:=:5
+    60 :5
+    5:&:5
+    2 :5
+    5:>>:5
+    2:=:5
+    15 :5
+    5:&:5
+    4 :5
+    5:<<:5
+    5:|:5
+} green
+
+{
+    4:=:5
+    63 :5
+    5:&:5
+    3:=:5
+    3 :5
+    5:&:5
+    6 :5
+    5:<<:5
+    5:|:5
+} blue
+
+{
+    blue
+    green
+    red
+} from_6bit_to_8bit
+
+{
+    1: !
+    2: !
+    3: !
+    4: !
+} clear_stack1_to_4
+
+{
+    5: !
+    5: !
+    5: !
+} clear_stack5
+
+{
+    "\e[48;2;255;255;255m  \e[0m"
+    print
+} print_white
+
+{
+    "\e[48;2;0;0;0m  \e[0m"
+    print
+} print_black
+
+{
+    5:=:5
+    255 :5
+    5:== ? print_white : print_black
+} test_white_and_black
+
+{
+    loop_every_4bits
+
+    // base10 RGB -> stack5 {top | r, g, b |bottom}
+    from_6bit_to_8bit
+    clear_stack1_to_4
+
+    // ----------- todo ----------->
+    // sano-san : base10 RGB -> 256 color & print
+    test_white_and_black // erase
+
+    // clear : base10 RGB stocked stack
+    clear_stack5
+    // <----------- todo -----------
+
+    8:(1 -):8
+    8:=:0
+
+    // endl
+    8:=:8
+    9:=:8
+    8:%:8
+    0 :8
+    8:== ? endl
+} loop_number_of_pixels
+
+{
+    2:=:9
+    2: !
+    0
+} store_sqrt_to_9
+
+{
+    1 :2
+    2:-:2
+    2:=:0
+} decrement
+
+{
+    2:(= =):1
+    1:*:1
+    8:=:1
+    1:== ? store_sqrt_to_9 : decrement
+} loop_sqrt
+
+{
+    // todo: limit
+    245 :2
+    2:=:0
+    @loop_sqrt
+} calc_sqrt
+
+{
+	"Error: is not a square\n"
+	print
+    exit
+} is_not_square
+
+{
+    9:#:9
+    1 :9
+    9:== ? is_not_square
+} is_square
+
+{
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" :7
+    7:][:7
+    64 :6
+    7: !
+} set_base64
+
+{
+    "Image received, nb pixels : "
+    print
+    8:=:8
+    8:print
+    endl
+
+    "Found square : "
+    print
+    9:=:9
+    9:print
+    endl
+} print_description
+
+{
+    8:(1 -):8
+} minus1
+
+{
+    8:=:0
+    !^
+    8:(1 -):8
+    8:=:8
+    1 :8
+    8:== ? minus1
+    8:=:0
+} loop_unroll
+
+{
+    9:=:8
+    8:=:0
+    @loop_unroll
+    8: !
+} reverse_stack0
+
+{
+
+} check_args
+
+{
+    // ----------- todo ----------->
+    // empty file, multi file error
+    // check_args
+
+    // <----------- todo -----------
+
+    read
+    0:=:9
+    4 /
+    0:=:8 !
+    ][ !
+
+    reverse_stack0
+    calc_sqrt
+    is_square
+    set_base64
+    print_description
+
+    8:=:0
+    @loop_number_of_pixels
+} main
+
+main

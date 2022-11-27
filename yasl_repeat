@@ -104,24 +104,23 @@
 } loop
 
 {
-    2
-    #!
-} pop_filename
+	! !
 
-pop_filename
+	# 0
+	== ? empty_arg
 
-# 0
-== ? empty_arg
+	is_positive_number
+	is_zero_number
+	!
+	// print_stackln
 
-is_positive_number
-is_zero_number
-!
-// print_stackln
+	// clear_unnecessary_stack -> 2 digis more
 
-// clear_unnecessary_stack
+	# 1
+	== ? empty_value
 
-# 1
-== ? empty_value
+	0: eval = :1
+	@loop
+} main
 
-// 0: eval = :1
-// @loop
+main
