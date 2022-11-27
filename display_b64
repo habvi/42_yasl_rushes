@@ -206,6 +206,7 @@
 
     // ----------- todo ----------->
     // sano-san : base10 RGB -> 256 color & print
+	print_stack
     test_white_and_black // erase
 
     // clear : base10 RGB stocked stack

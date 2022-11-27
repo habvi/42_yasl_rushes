@@ -284,11 +284,11 @@
 	3:!
 	3:=:4
 	3:!
-	4:=:0
+	4:=:5
 	4:!
-	4:=:0
+	4:=:5
 	4:!
-	4:=:0
+	4:=:5
 	4:!
 } remove_unnecessry_arg
 
@@ -430,7 +430,7 @@
 
 {
 	//print_stack
-	=
+	5:=
 	8:=:1
 	1:][:1
 	1:!
@@ -515,13 +515,21 @@
 remove_unnecessry_arg
 init_color_list
 set_thread_val
-convert_std255
-calc_color
-print_stack
-search_color
+1
+1
+1
+1
+1
+1
+1
 
-print_color
-clear_stack
-//"end\n"
-//print
+convert_std255
+//calc_color
+//print_stack
+//search_color
+
+//print_color
+//clear_stack
+"end\n"
+print
 print_stack
