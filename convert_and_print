@@ -310,7 +310,7 @@
 	//":in_range\n"
 	//print
 	//0
-	=
+	5:=
 	1:=:0
 	//print_stack
 	( <=  ? 0 : 1)
@@ -321,7 +321,7 @@
 	//"get_near_value_loop\n"
 	//print
 	//=
-	=
+	5:=
 	1:=:2
 	1:=:0
 	1:!
@@ -406,9 +406,9 @@
 	#:3
 	1
 	@clear_stack3
-	#:5
-	1
-	@clear_stack5
+	//#:5
+	//1
+	//@clear_stack5
 	//#:4
 	//1
 	//@clear_stack4
@@ -435,17 +435,17 @@
 	1:][:1
 	1:!
 	//1
-	=
+	5:=
 	0
 	!= ? get_near_value_loop_wrap : zero_value
 	//@get_near_value_loop
 	which_value
-	!
+	5:!
 	1:#
 	@clear_stack1
 	2:#
 	@clear_stack2
-	#
+	5:#
 } get_near_value
 
 {
@@ -523,13 +523,14 @@ set_thread_val
 1
 1
 
+print_stack
 convert_std255
-//calc_color
+calc_color
 //print_stack
-//search_color
+search_color
 
-//print_color
-//clear_stack
+print_color
+clear_stack
 "end\n"
 print
 print_stack
