@@ -21,35 +21,6 @@
 } none
 
 {
-    "\e[48;5;255m  \e[0m"
-    print
-    "\e[48;5;26m  \e[0m"
-    print
-    "\e[48;5;171m  \e[0m"
-    print
-    "\e[48;5;255m  \e[0m"
-    print
-    "\e[48;5;26m  \e[0m"
-    print
-    "\e[48;5;171m  \e[0m"
-    print
-    "\e[48;2;255;255;255m  \e[0m"
-    print
-    "\e[48;2;0;0;0m  \e[0m"
-    print
-    "\e[48;2;3;7;7m  \e[0m"
-    print
-    "\e[48;2;192;224;224m  \e[0m"
-    print
-    "\e[48;2;1;51;102m  \e[0m"
-    print
-    "\e[48;2;102;51;1m  \e[0m"
-    println
-} color_sample
-
-// color_sample
-
-{
     6:=:1
     5:=:1
     1:-:1
@@ -149,7 +120,6 @@
     @convert_base64_to_base10_1
     5: !
     !
-    // print_stackln
 } loop_every_4bits
 
 {
@@ -230,16 +200,13 @@
 {
     loop_every_4bits
 
-    // base10 RGB -> stack5 {top | r, g, b |bottom} ?
+    // base10 RGB -> stack5 {top | r, g, b |bottom}
     from_6bit_to_8bit
     clear_stack1_to_4
-    // print_stackln
 
     // ----------- todo ----------->
     // sano-san : base10 RGB -> 256 color & print
-    //"a"
-    //print
-    test_white_and_black
+    test_white_and_black // erase
 
     // clear : base10 RGB stocked stack
     clear_stack5
@@ -248,6 +215,7 @@
     8:(1 -):8
     8:=:0
 
+    // endl
     8:=:8
     9:=:8
     8:%:8
@@ -275,6 +243,7 @@
 } loop_sqrt
 
 {
+    // todo: limit
     245 :2
     2:=:0
     @loop_sqrt
@@ -314,6 +283,27 @@
 } print_description
 
 {
+    8:(1 -):8
+} minus1
+
+{
+    8:=:0
+    !^
+    8:(1 -):8
+    8:=:8
+    1 :8
+    8:== ? minus1
+    8:=:0
+} loop_unroll
+
+{
+    9:=:8
+    8:=:0
+    @loop_unroll
+    8: !
+} reverse_stack0
+
+{
 
 } check_args
 
@@ -330,6 +320,7 @@
     0:=:8 !
     ][ !
 
+    reverse_stack0
     calc_sqrt
     is_square
     set_base64
@@ -337,7 +328,6 @@
 
     8:=:0
     @loop_number_of_pixels
-    // print_stackln
 } main
 
 main
