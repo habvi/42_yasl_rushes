@@ -1,8 +1,17 @@
 #!./yasl
 
+{
+	"^D\n"
+	print
+	#
+	exit
+} end
+
 !
 @( read
-!
+0
+==
+? end
 eval
 ""
 print
