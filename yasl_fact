@@ -71,7 +71,7 @@
 } remove_unnecessry_arg
 
 {
-	1
+	"1\n"
 	print
 	exit
 } zero
@@ -132,3 +132,5 @@ is_positive_number
 @clear_stack
 6:=:0
 factorial
+"\n"
+print

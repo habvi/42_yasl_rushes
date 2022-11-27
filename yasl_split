@@ -114,4 +114,6 @@ check_separator
 //print_stack
 
 print_separate
+"\n"
+print
 
