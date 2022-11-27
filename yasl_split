@@ -114,6 +114,7 @@ check_separator
 //print_stack
 
 print_separate
-"\n"
+6:=:0
+( 0 == ? "" : "\n")
 print
 
