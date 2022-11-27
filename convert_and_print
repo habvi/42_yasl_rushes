@@ -263,13 +263,9 @@
 4:[]:4
 } init_color_list
 
-{
-	!
-	#
-	0
-	>
-	? 1 : 0
-} clear_stack
+
+
+
 
 {
 	( # 5 != ? invalid_arg : none)
@@ -369,6 +365,49 @@
 } clear_stack2
 
 {
+	3:!:3
+	3:#:3
+	0:3
+	3:>:3
+	3:? 1 : 0
+} clear_stack3
+
+{
+	4:!:4
+	4:#:4
+	0:4
+	4:>:4
+	4:? 1 : 0
+} clear_stack4
+
+{
+	6:!:6
+	6:#:6
+	0:6
+	6:>:6
+	6:? 1 : 0
+} clear_stack6
+
+{
+	#:1
+	1
+	@clear_stack1
+	#:2
+	1
+	@clear_stack2
+	#:3
+	1
+	@clear_stack3
+	//#:4
+	//1
+	//@clear_stack4
+	#:6
+	1
+	@clear_stack6
+	8:!
+} clear_stack
+
+{
 
 	//"zero_value\n"
 	//print
@@ -421,7 +460,7 @@
 	"OK\n"
 	print
 
-	6:=:5
+	//6:=:5
 	6:!
 	0
 } copy_searched_color
@@ -448,7 +487,6 @@
 	6:!
 	255 
 	255 
-	print_stack
 	@search_color_loop
 	
 
@@ -470,7 +508,8 @@ convert_std255
 calc_color
 search_color
 
-"end\n"
-print
-print_stack
 print_color
+clear_stack
+//"end\n"
+//print
+//print_stack
