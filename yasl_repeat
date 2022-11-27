@@ -36,54 +36,69 @@
 } empty_value
 
 {
-	"Error:"
+	"Error: invalid start_num\n"
 	print
-	" invalid start_num\n"
-	print
-	#
+	0
 	exit 1
 } not_number
 
 {
 	=
 	(":" == ? not_number : none)
-
 } check_colon
 
 {
-	7: = :0
+	7:=:0
 	=
 	(9 <= ? check_colon : none)
 	=
 	("0" >= ? = : not_number)
 	(":" <= ? = : not_number)
 	!
-	7: !
+	7:!
 	=
 	1
 	<<
-	= :7
+	=:7
+	!
+	!
 } is_number
 
 {
 	is_number
-	8: = :0
+	8:=:0
 	(1 -)
-	=
-	(0 == ? 0:9 : 1:9)
-	0: = :8
+	0:=:8
 } loop_cnt
 
 {
+	=
 	strlen
-	= :8
+	=:8
 	!
 	!
-	= :7
+	=:7
 	@loop_cnt
+	8:!
+	7:!
 } is_positive_number
 
 {
+	8:!
+	8:#:8
+	8:=:0
+	8:!
+} loop_clear
+
+{
+	8:#:8
+	8:=:0
+	8:!
+	@loop_clear
+} clear_stack8
+
+{
+	0:=:0
 	"0"
 	== ? not_number
 	" "
@@ -105,22 +120,20 @@
 
 {
 	! !
-
 	# 0
 	== ? empty_arg
 
 	is_positive_number
+	clear_stack8
 	is_zero_number
 	!
-	// print_stackln
-
-	// clear_unnecessary_stack -> 2 digis more
 
 	# 1
 	== ? empty_value
 
 	0: eval = :1
 	@loop
+	1:!
 } main
 
 main
