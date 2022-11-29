@@ -10,75 +10,52 @@
 	[#]
 } strlen
 
-
 {
-
-	//"\nloop\n"
-	//print
-	//print_stack
-	0:=:2
-	!
+	0:=:2 !
 
 	8:=:0
-	( 1 - )
-	=
-	( 0 == ? 0:9 : 1:9 )
+	1 - =
+	0 == ? 0:9 : 1:9
 	0:=:8
 } loop_cnt
 
 {
-	"Error:invalid arguments number\n"
-	print
-	#
-	exit
-
+	"Error:invalid arguments number\n" print
+	1 exit
 } invalid_arg
 
 {
-	( # 4 != ? invalid_arg : none)
-	!
-	!
+	# 4 != ? invalid_arg : none
+	! !
 } remove_unnecessry_arg
 
 {
-	//print_stack
 	0:=:1
 	!
-	//0:][:2
 	][
 	0:=:8
 	@loop_cnt
-	//"loop end\n"
-	//print
-	//print_stack
 	!
-	//2:
-	//print
 } cp_word
 
 {
-	"Error:invalid separator\n"
-	print
-	#
-	exit
+	"Error:invalid separator\n" print
+	1 exit
 } invalid_separator
 
 {
 	1:=:0
 	strlen
-	(1 == ? none : invalid_separator)
+	1 == ? none : invalid_separator
 } check_separator
 
 {
-	!
-	#
-	0
-	>
+	! # 0 >
 	? 1 : 0
 } clear_stack
 
 {
-	(6:= 0 > ? "\n" : "")
+	6:= 0 > ? "\n" : ""
 	print
 	6:!
 	0:6
@@ -92,14 +69,13 @@
 } print_str
 
 {
-	2:=:0
-	=
+	2:=:0 =
 	1:=:0
-	( == ? print_cr : print_str)
+	== ? print_cr : print_str
 
 	2:!
 	2:#:0
-	( 0 == ? none : print_separate)
+	0 == ? none : print_separate
 } print_separate
 
 {
@@ -111,10 +87,8 @@ cp_word
 init_flag
 check_separator
 @clear_stack
-//print_stack
 
 print_separate
 6:=:0
-( 0 == ? "" : "\n")
+0 == ? "" : "\n"
 print
-

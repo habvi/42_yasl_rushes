@@ -262,21 +262,18 @@
 } init_color_list
 
 {
+	"\n" print
+} endl
+
+{
 	print_stack
-	"\n"
-	print
+	endl
 } print_stackln
 
 {
 	print
-	"\n"
-	print
+	endl
 } println
-
-{
-	"\n"
-	print
-} endl
 
 {
 } none
@@ -307,8 +304,7 @@
 
 {
 	6:=:7
-	7:^:7
-	7:=:7
+	7:(^ =):7
 
 	// cmp
 	0:=:7
@@ -320,8 +316,7 @@
 
 {
 	6:=:7
-	7:^:7
-	7:=:7
+	7:(^ =):7
 
 	// cmp
 	0:=:7
@@ -333,8 +328,7 @@
 
 {
 	6:=:7
-	7:^:7
-	7:=:7
+	7:(^ =):7
 
 	// cmp
 	0:=:7
@@ -346,8 +340,7 @@
 
 {
 	6:=:7
-	7:^:7
-	7:=:7
+	7:(^ =):7
 
 	// cmp
 	0:=:7
@@ -359,10 +352,8 @@
 
 {
 	endl
-	"Error: found a invalid string\n"
-	print
-	0
-	exit
+	"Error: found a invalid string\n" print
+	1 exit
 } file_content_erorr
 
 {
@@ -413,8 +404,7 @@
 	63:5
 	5:&:5
 	2:5
-	5:<<:5
-	5:|:5
+	5:(<< |):5
 } red
 
 {
@@ -427,8 +417,7 @@
 	15:5
 	5:&:5
 	4:5
-	5:<<:5
-	5:|:5
+	5:(<< |):5
 } green
 
 {
@@ -439,8 +428,7 @@
 	3:5
 	5:&:5
 	6:5
-	5:<<:5
-	5:|:5
+	5:(<< |):5
 } blue
 
 {
@@ -598,8 +586,7 @@
 	4:*:0
 	65536:4
 	4:*:0
-	+
-	+
+	+ +
 } calc_color
 
 {
@@ -608,8 +595,7 @@
 } copy_searched_color
 
 {
-	1
-	-
+	1 -
 	5:!
 	1
 } continue_search
@@ -633,11 +619,9 @@
 } search_color
 
 {
-	"\e[48;5;"
+	"\e[48;5;" print
 	print
-	print
-	"m  \e[0m"
-	print
+	"m  \e[0m" print
 } print_color
 
 {
@@ -654,19 +638,15 @@
 	to_string_stack5
 	5:=:0
 	5:!
-	+
-	";" +
+	+ ";" +
 	to_string_stack5
 	5:=:0
 	5:!
-	+
-	";" +
+	+ ";" +
 	to_string_stack5
 	5:=:0
 	5:!
-	+
-	"m  \e[0m" +
-	print
+	+ "m  \e[0m" + print
 } print_rgb_background
 
 {
@@ -718,10 +698,8 @@
 } calc_sqrt
 
 {
-	"Error: is not a square\n"
-	print
-	0
-	exit
+	"Error: is not a square\n" print
+	1 exit
 } is_not_square
 
 {
@@ -738,14 +716,12 @@
 } set_base64
 
 {
-	"Image received, nb pixels : "
-	print
+	"Image received, nb pixels : " print
 	8:=:8
 	8:print
 	endl
 
-	"Found square : "
-	print
+	"Found square : " print
 	9:=:9
 	9:print
 	endl
@@ -758,8 +734,7 @@
 {
 	8:=:0
 	!^
-	8:(1 -):8
-	8:=:8
+	8:(1 - =):8
 	1:8
 	8:== ? minus1
 	8:=:0
@@ -773,14 +748,12 @@
 } reverse_stack0
 
 {
-	"Error: invalid arguments\n"
-	print
-	exit
+	"Error: invalid arguments\n" print
+	1 exit
 } args_erorr
 
 {
-	1
-	!= ? args_erorr
+	1 != ? args_erorr
 } check_args
 
 {

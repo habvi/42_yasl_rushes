@@ -4,6 +4,10 @@
 } none
 
 {
+    "\n" print
+} endl
+
+{
 	=
 	][
 	[]
@@ -11,43 +15,30 @@
 } strlen
 
 {
-	"Error:"
-	print
-	" is not valid number\n"
-	print
-	#
-	exit 1
+	"Error: is not valid number\n" print
+	1 exit
 } not_number
 
 {
-	=
-	( ":" == ? not_number : none)
-
+	= ":" == ? not_number : none
 } check_colon
 
 {
-
-
 	7:=:0
+	= 9 <= ? check_colon : none
 	=
-	( 9 <= ? check_colon : none)
-	=
-	("0" >= ? = : not_number)
-	(":" <= ? = : not_number)
+	"0" >= ? = : not_number
+	":" <= ? = : not_number
 	!
 	7:!
-	=
-	1
-	<<
-	=:7
+	= 1 << =:7
 } is_number
 
 {
 	is_number
 	8:=:0
-	( 1 - )
-	=
-	( 0 == ? 0:9 : 1:9 )
+	1 - =
+	0 == ? 0:9 : 1:9
 	0:=:8
 } loop_cnt
 
@@ -57,80 +48,55 @@
 } init_factorial_value
 
 {
-	"Error:invalid arguments number\n"
-	print
-	#
-	exit
-
+	"Error:invalid arguments number\n" print
+	1 exit
 } invalid_arg
 
 {
-	( # 3 != ? invalid_arg : none)
-	!
-	!
+	# 3 != ? invalid_arg : none
+	! !
 } remove_unnecessry_arg
 
 {
-	"1\n"
-	print
-	exit
+	"1\n" print
+	1 exit
 } zero
 
 {
 	strlen
 	=:8
-	!
-	!
+	! !
 	=:7
 	@loop_cnt
 } is_positive_number
 
 {
-	#
-	1
-	==
-	? none : 
-
-
-} check_arg
-
-{
-	"Error:overflow\n"
-	print
-	#
-	exit
+	"Error:overflow\n" print
+	1 exit
 } overflow
 
 {
-	!
-	#
-	0
-	>
+	! #	0 >
 	? 1 : 0
 } clear_stack
 
 {
 	=
-	1: = :0
+	1:=:0
 	%*
 	=:1
 	< ? ! : overflow
-	( 1 - )
-	=
-	1
-	> ? factorial :  1:print
+	1 - = 1
+	> ? factorial : 1:print
 } factorial
 
 remove_unnecessry_arg
 init_factorial_value
-//check_arg
 is_positive_number
-=
-0
+= 0
 == ? zero : 1
 == ? zero : 1
 @clear_stack
 6:=:0
 factorial
-"\n"
-print
+endl

@@ -1,19 +1,14 @@
 #!./yasl
 
 {
-	"^D\n"
-	print
-	#
-	exit
+	"^D\n" print
+	1 exit
 } end
 
 !
-@( read
-0
-==
-? end
-eval
-""
-print
-1
+@(read
+	0 == ? end
+	eval
+	"" print
+	1
 )

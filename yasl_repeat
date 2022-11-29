@@ -1,15 +1,31 @@
 #!yasl
 
 {
+    "\n" print
+} endl
+
+{
     print_stack
-    "\n"
-    print
+    endl
 } print_stackln
 
 {
-    "\n"
-    print
-} endl
+} none
+
+{
+	"Error: empty arguments\n" print
+    1 exit
+} empty_arg
+
+{
+	"Error: empty value\n" print
+    1 exit
+} empty_value
+
+{
+	"Error: invalid start_num\n" print
+	1 exit
+} not_number
 
 {
 	=
@@ -19,55 +35,25 @@
 } strlen
 
 {
-} none
-
-{
-	"Error: empty arguments\n"
-	print
-    0
-    exit 1
-} empty_arg
-
-{
-	"Error: empty value\n"
-	print
-    0
-    exit 1
-} empty_value
-
-{
-	"Error: invalid start_num\n"
-	print
-	0
-	exit 1
-} not_number
-
-{
-	=
-	(":" == ? not_number : none)
+	= ":" == ? not_number : none
 } check_colon
 
 {
 	7:=:0
+	= 9 <= ? check_colon : none
 	=
-	(9 <= ? check_colon : none)
-	=
-	("0" >= ? = : not_number)
-	(":" <= ? = : not_number)
+	"0" >= ? = : not_number
+	":" <= ? = : not_number
 	!
 	7:!
-	=
-	1
-	<<
-	=:7
-	!
-	!
+	= 1 << =:7
+	! !
 } is_number
 
 {
 	is_number
 	8:=:0
-	(1 -)
+	1 -
 	0:=:8
 } loop_cnt
 
@@ -75,8 +61,7 @@
 	=
 	strlen
 	=:8
-	!
-	!
+	! !
 	=:7
 	@loop_cnt
 	8:!
@@ -99,39 +84,35 @@
 
 {
 	0:=:0
-	"0"
-	== ? not_number
+	"0" == ? not_number
 	" "
 } is_zero_number
 
 {
-    =
-    print
+    = print
 } print_args
 
 {
-    1: = :0
-    1: (1 +) :1
+    1:=:0
+    1:(1 +):1
     #print_args
-    endl
-    !
+    endl !
     #
 } loop
 
 {
 	! !
-	# 0
-	== ? empty_arg
+	# 0 == ? empty_arg
 
 	is_positive_number
 	clear_stack8
 	is_zero_number
 	!
 
-	# 1
-	== ? empty_value
+	# 1 == ? empty_value
 
-	0: eval = :1
+	eval
+	=:1
 	@loop
 	1:!
 } main

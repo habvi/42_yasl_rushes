@@ -12,9 +12,7 @@
 
 {
     ! !
-
-    #
-    @loop
+    # @loop
 } main
 
 main
