@@ -757,10 +757,20 @@
 } check_args
 
 {
-	init_color_list
-	check_args
+	"Error: invalid bytes\n" print
+	1 exit
+} base64_error
 
+{
+	= 4 % 0 != ? base64_error
+} is_divisible_by_4
+
+{
+	check_args
 	read
+	is_divisible_by_4
+	init_color_list
+
 	0:=:9
 	4 /
 	0:=:8 !
