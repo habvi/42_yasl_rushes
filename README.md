@@ -7,6 +7,10 @@ language : yasl
 
 man : [yasl.0.txt](tools_from_42/yasl.0.txt)  
 
+todo
+- yasl_repeat, yasl_fact, yasl_split : for ""
+- display_b64 : check % 4
+
 <br>
 
 [yasl_hw](yasl_hw)
