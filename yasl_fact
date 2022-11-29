@@ -59,7 +59,7 @@
 
 {
 	"1\n" print
-	1 exit
+	0 exit
 } zero
 
 {
